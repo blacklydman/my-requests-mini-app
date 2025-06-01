@@ -1,172 +1,173 @@
 /* Общие стили и сброс */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  color: #333;
-  padding: 1rem;
-}
-
-.container {
-  background: #fff;
-  border-radius: 20px;
-  padding: 2.5rem 3rem;
-  max-width: 420px;
-  width: 100%;
-  box-shadow: 0 16px 40px rgba(102, 126, 234, 0.3);
-  transition: box-shadow 0.3s ease;
-}
-
-.container:hover {
-  box-shadow: 0 20px 60px rgba(118, 75, 162, 0.45);
-}
-
-h1 {
-  font-weight: 800;
-  font-size: 2.2rem;
-  margin-bottom: 1.8rem;
-  text-align: center;
-  color: #4a3f6f;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  font-weight: 600;
-  color: #6c5ce7;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  user-select: none;
-}
-
-input {
-  background: #f8f9ff;
-  border: 2px solid #dfe3f0;
-  border-radius: 12px;
-  padding: 0.9rem 1.2rem;
-  font-size: 1.05rem;
-  margin-bottom: 1.5rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  color: #4a4a4a;
-  font-weight: 500;
-}
-
-input::placeholder {
-  color: #a3a8cc;
-  font-weight: 400;
-}
-
-input:focus {
-  border-color: #6c5ce7;
-  box-shadow: 0 0 8px rgba(108, 92, 231, 0.6);
-  outline: none;
-}
-
-button {
-  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-  border: none;
-  border-radius: 14px;
-  color: white;
-  font-weight: 700;
-  font-size: 1.15rem;
-  padding: 1rem 0;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(108, 92, 231, 0.35);
-  transition: background 0.4s ease, box-shadow 0.4s ease;
-}
-
-button:hover {
-  background: linear-gradient(135deg, #a29bfe, #6c5ce7);
-  box-shadow: 0 12px 30px rgba(162, 155, 254, 0.5);
-}
-
-.success-message {
-  background-color: #dff0d8;
-  border-radius: 14px;
-  padding: 1.3rem 1rem;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #2f6627;
-  text-align: center;
-  margin-top: 1.4rem;
-  box-shadow: 0 6px 12px rgba(47, 102, 39, 0.25);
-  display: none;
-}
-
-.error-message {
-  color: #e74c3c;
-  font-size: 0.9rem;
-  margin-top: -1rem;
-  margin-bottom: 1.3rem;
-  user-select: none;
-  display: none;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-/* Адаптивность */
-@media (max-width: 480px) {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    padding: 1rem;
+  }
+  
   .container {
-    padding: 2rem 1.5rem;
-    max-width: 90%;
+    background: #fff;
+    border-radius: 20px;
+    padding: 2.5rem 3rem;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 16px 40px rgba(102, 126, 234, 0.3);
+    transition: box-shadow 0.3s ease;
   }
-
+  
+  .container:hover {
+    box-shadow: 0 20px 60px rgba(118, 75, 162, 0.45);
+  }
+  
   h1 {
-    font-size: 1.7rem;
-    margin-bottom: 1.2rem;
+    font-weight: 800;
+    font-size: 2.2rem;
+    margin-bottom: 1.8rem;
+    text-align: center;
+    color: #4a3f6f;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
-
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
   label {
-    font-size: 0.95rem;
-  }
-
-  input {
-    font-size: 0.95rem;
-    padding: 0.8rem 1rem;
-  }
-
-  button {
+    font-weight: 600;
+    color: #6c5ce7;
+    margin-bottom: 0.5rem;
     font-size: 1rem;
-    padding: 0.9rem 0;
+    user-select: none;
   }
-}
-
-@media (max-width: 360px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  .container {
-    padding: 1.5rem 1rem;
-  }
-
+  
   input {
-    font-size: 0.9rem;
-    padding: 0.7rem 0.9rem;
+    background: #f8f9ff;
+    border: 2px solid #dfe3f0;
+    border-radius: 12px;
+    padding: 0.9rem 1.2rem;
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: #4a4a4a;
+    font-weight: 500;
   }
-
+  
+  input::placeholder {
+    color: #a3a8cc;
+    font-weight: 400;
+  }
+  
+  input:focus {
+    border-color: #6c5ce7;
+    box-shadow: 0 0 8px rgba(108, 92, 231, 0.6);
+    outline: none;
+  }
+  
   button {
-    font-size: 0.95rem;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    border: none;
+    border-radius: 14px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.15rem;
+    padding: 1rem 0;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.35);
+    transition: background 0.4s ease, box-shadow 0.4s ease;
   }
-}
-
-/* Для больших экранов */
-@media (min-width: 1024px) {
-  .container {
-    max-width: 500px;
+  
+  button:hover {
+    background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+    box-shadow: 0 12px 30px rgba(162, 155, 254, 0.5);
   }
-}
+  
+  .success-message {
+    background-color: #dff0d8;
+    border-radius: 14px;
+    padding: 1.3rem 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #2f6627;
+    text-align: center;
+    margin-top: 1.4rem;
+    box-shadow: 0 6px 12px rgba(47, 102, 39, 0.25);
+    display: none;
+  }
+  
+  .error-message {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: -1rem;
+    margin-bottom: 1.3rem;
+    user-select: none;
+    display: none;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 480px) {
+    .container {
+      padding: 2rem 1.5rem;
+      max-width: 90%;
+    }
+  
+    h1 {
+      font-size: 1.7rem;
+      margin-bottom: 1.2rem;
+    }
+  
+    label {
+      font-size: 0.95rem;
+    }
+  
+    input {
+      font-size: 0.95rem;
+      padding: 0.8rem 1rem;
+    }
+  
+    button {
+      font-size: 1rem;
+      padding: 0.9rem 0;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    .container {
+      padding: 1.5rem 1rem;
+    }
+  
+    input {
+      font-size: 0.9rem;
+      padding: 0.7rem 0.9rem;
+    }
+  
+    button {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Для больших экранов */
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 500px;
+    }
+  }
+  
