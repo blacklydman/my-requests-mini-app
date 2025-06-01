@@ -6,7 +6,7 @@ TOKEN = "7005657844:AAFZUVhAk0xQRiNaQHNVvRUejCDi1zehDwk"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
-        [InlineKeyboardButton("Оставить заявку", web_app=WebAppInfo(url="https://ТВОЙ_НИК.github.io/telegram-miniapp/"))]
+    [InlineKeyboardButton("Оставить заявку", web_app=WebAppInfo(url="https://Blacklydman.github.io/My-Requests-Mini-App/"))]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text("Привет! Нажми на кнопку, чтобы оставить заявку.", reply_markup=reply_markup)
