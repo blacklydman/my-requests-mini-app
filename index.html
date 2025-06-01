@@ -1,54 +1,76 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<html lang="ru">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Прием заявок</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="ru"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Форма заявки&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://telegram.org/js/telegram-web-app.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body { font-family: sans-serif; padding: 20px; background: var(--tg-theme-bg-color, #fff); color: var(--tg-theme-text-color, #000); }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>input, textarea { width: 100%; margin-bottom: 10px; padding: 8px; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>button { width: 100%; padding: 10px; background: #0088cc; color: #fff; border: none; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;h2&gt;Оставьте заявку&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;form id="form"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="name" placeholder="Ваше имя" required /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="email" id="email" placeholder="Email" required /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;textarea id="message" placeholder="Сообщение" required&gt;&lt;/textarea&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button type="submit"&gt;Отправить&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/form&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const tg = window.Telegram.WebApp;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>tg.expand();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("form").addEventListener("submit", (e) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>e.preventDefault();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const data = {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>name: document.getElementById("name").value,</p>
-<p class="p1"><span class="Apple-converted-space">        </span>email: document.getElementById("email").value,</p>
-<p class="p1"><span class="Apple-converted-space">        </span>message: document.getElementById("message").value</p>
-<p class="p1"><span class="Apple-converted-space">      </span>};</p>
-<p class="p1"><span class="Apple-converted-space">      </span>tg.sendData(JSON.stringify(data));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>tg.close();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <div class="container">
+    <h1>Оставьте заявку</h1>
+    <form id="request-form" novalidate>
+      <label for="name">Имя</label>
+      <input type="text" id="name" name="name" placeholder="Ваше имя" required minlength="2" />
+      <div id="name-error" class="error-message">Введите корректное имя (минимум 2 символа)</div>
+
+      <label for="phone">Телефон</label>
+      <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required pattern="^\+?\d[\d\s\-\(\)]{5,}$" />
+      <div id="phone-error" class="error-message">Введите корректный телефон</div>
+
+      <button type="submit">Отправить</button>
+    </form>
+    <div id="success-message" class="success-message">Спасибо! Ваша заявка принята.</div>
+  </div>
+
+  <script>
+    const form = document.getElementById('request-form');
+    const nameInput = form.name;
+    const phoneInput = form.phone;
+
+    const nameError = document.getElementById('name-error');
+    const phoneError = document.getElementById('phone-error');
+    const successMessage = document.getElementById('success-message');
+
+    function validateName() {
+      if (nameInput.value.trim().length < 2) {
+        nameError.style.display = 'block';
+        return false;
+      } else {
+        nameError.style.display = 'none';
+        return true;
+      }
+    }
+
+    function validatePhone() {
+      const pattern = /^\+?\d[\d\s\-\(\)]{5,}$/;
+      if (!pattern.test(phoneInput.value.trim())) {
+        phoneError.style.display = 'block';
+        return false;
+      } else {
+        phoneError.style.display = 'none';
+        return true;
+      }
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const isNameValid = validateName();
+      const isPhoneValid = validatePhone();
+
+      if (!isNameValid || !isPhoneValid) return;
+
+      successMessage.style.display = 'block';
+      form.reset();
+
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 5000);
+    });
+
+    nameInput.addEventListener('input', validateName);
+    phoneInput.addEventListener('input', validatePhone);
+  </script>
 </body>
 </html>
